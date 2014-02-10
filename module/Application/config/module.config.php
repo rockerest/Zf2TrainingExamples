@@ -50,6 +50,28 @@ return array(
                     ),
                 ),
             ),
+            'person' => array(
+                'type' => 'Segment',
+                'options' => array(
+                    'route' => '/person[/:intent]',
+                    'defaults' => array(
+                        'controller'    => 'Person',
+                        'action'        => 'person',
+                    ),
+
+                )
+            ),
+            'foo' => array(
+                'type' => 'Literal',
+                'options' => array(
+                    'route' => '/foo',
+                    'defaults' => array(
+                        'controller'    => 'Person',
+                        'action'        => 'foo',
+                    ),
+
+                )
+            ),
             'helloWorld' => array(
                 'type' => 'Literal',
                 'options' => array(
@@ -57,7 +79,7 @@ return array(
                     'defaults' => array(
                         'controller'    => 'HelloWorld',
                         'action'        => 'helloWorld',
-                    ),  
+                    ),
 
                 )
             ),
@@ -68,7 +90,7 @@ return array(
                     'defaults' => array(
                         'controller'    => 'HelloWorld',
                         'action'        => 'helloMyNameIs',
-                    ),  
+                    ),
 
                 )
             )
@@ -95,8 +117,9 @@ return array(
     ),
     'controllers' => array(
         'invokables' => array(
-            'Application\Controller\Index' => 'Application\Controller\IndexController',
-            'HelloWorld'                   => 'Application\Controller\HelloWorldController'
+            'Application\Controller\Index'  => 'Application\Controller\IndexController',
+            'HelloWorld'                    => 'Application\Controller\HelloWorldController',
+            'Person'                        => 'Application\Controller\PersonController'
         ),
     ),
     'view_manager' => array(
@@ -110,16 +133,20 @@ return array(
             'application/index/index' => __DIR__ . '/../view/application/index/index.phtml',
             'error/404'               => __DIR__ . '/../view/error/404.phtml',
             'error/index'             => __DIR__ . '/../view/error/index.phtml',
+            'person/person'           => __DIR__ . '/../view/application/person/person.phtml'
         ),
         'template_path_stack' => array(
             __DIR__ . '/../view',
         ),
+        'strategies' => array(
+            'ViewJsonStrategy'
+        )
     ),
     // Placeholder for console routes
     'console' => array(
         'router' => array(
             'routes' => array(
             ),
-        ),
-    ),
+        )
+    )
 );
