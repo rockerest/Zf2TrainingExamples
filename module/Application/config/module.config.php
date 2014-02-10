@@ -49,63 +49,6 @@ return array(
                         ),
                     ),
                 ),
-            ),
-            'helloWorld' => array(
-                'type' => 'Literal',
-                'options' => array(
-                    'route' => '/hello_world',
-                    'defaults' => array(
-                        'controller'    => 'HelloWorld',
-                        'action'        => 'helloWorld',
-                    ),  
-
-                )
-            ),
-            'helloMyNameIs' => array(
-                'type' => 'segment',
-                'options' => array(
-                    'route' => '/hello/my/name/is/:name',
-                    'defaults' => array(
-                        'controller'    => 'HelloWorld',
-                        'action'        => 'helloMyNameIs',
-                    ),  
-
-                )
-            ),
-            'hello' => array(
-                'type' => 'Literal',
-                'options' => array(
-                    'route' => '/hello',
-                    'defaults' => array(
-                        'controller'    => 'HelloWorld',
-                        'action'        => 'hello',
-                    ),
-
-                )
-            ),
-            'hello_json' => array(
-                'type' => 'Literal',
-                'options' => array(
-                    'route' => '/hello/json',
-                    'defaults' => array(
-                        'controller'    => 'HelloWorld',
-                        'action'        => 'helloJson',
-                    ),
-
-                )
-            ),
-            'book' => array(
-                'type' => 'Segment',
-                'options' => array(
-                    'route' => '/book[/:id]',
-                    'constraints' => array(
-                        'id'     => '[0-9]+',
-                    ),
-                    'defaults' => array(
-                        'controller'    => 'BookRest',
-                    ),
-
-                )
             )
         ),
     ),
@@ -130,10 +73,7 @@ return array(
     ),
     'controllers' => array(
         'invokables' => array(
-            'Application\Controller\Index' => 'Application\Controller\IndexController',
-            'HelloWorld'                   => 'Application\Controller\HelloWorldController',
-            'BookRest'                     => 'Application\Controller\BookRestController'
-
+            'Application\Controller\Index' => 'Application\Controller\IndexController'
         ),
     ),
     'view_manager' => array(
@@ -150,11 +90,7 @@ return array(
         ),
         'template_path_stack' => array(
             __DIR__ . '/../view',
-        ),
-        //This is required for json rendering
-        'strategies' => array(
-            'ViewJsonStrategy',
-        ),
+        )
     ),
     // Placeholder for console routes
     'console' => array(
